@@ -17,7 +17,7 @@ def main():
 """
 HELPER FUNCTIONS
 """
-#used to print the maze in an aesthetic manner
+#used to print out the maze in an aesthetic manner
 def print_maze(maze):
     for i in range(len(maze)):
         for j in range(len(maze[0])):
