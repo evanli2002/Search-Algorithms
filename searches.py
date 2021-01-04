@@ -15,6 +15,33 @@ def main():
     greedy_best(maze)
 
 """
+HELPER FUNCTIONS
+"""
+#used to print the maze in an aesthetic manner
+def print_maze(maze):
+    for i in range(len(maze)):
+        for j in range(len(maze[0])):
+            print(maze[i][j], end="   ")
+        print()  
+
+#used to get neighbouring points
+def get_neighbours(maze, point):
+    neighbours = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+    valid = []
+
+    for neighbour in neighbours:
+        new_pos = (point[0] + neighbour[0], point[1] + neighbour[1])
+
+        if (0 <= new_pos[0] < len(maze)) and (0 <= new_pos[1] < len(maze[0])) and (maze[new_pos[0]][new_pos[1]] != "#"):
+            valid.append(new_pos)
+    
+    return valid
+
+#used to get Manhattan Distance to the goal
+def manhattan_distance(point, goal = (8, 7)):
+    return abs(point[0] - goal[0]) + abs(point[1] - goal[1])
+    
+"""
 SEARCH FUNCTIONS
 """
 #depth first search
